@@ -1,15 +1,15 @@
 name: Metrics
 on:
   # Schedule daily updates
-  schedule: [{cron: "0 0 * * *"}]
+  schedule: [{ cron: '0 0 * * *' }]
   # (optional) Run workflow manually
   workflow_dispatch:
   # (optional) Run workflow when pushing on master/main
-  push: {branches: ["master", "main"]}
+  push: { branches: ['master', 'main'] }
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: production
     permissions:
       contents: write
@@ -18,3 +18,19 @@ jobs:
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: xddxdd
+          committer_token: ${{ secrets.METRICS_TOKEN }}
+          output_condition: data-changed
+          config_octicon: yes
+          config_display: columns
+
+          template: classic
+          base: header, activity, community, repositories, metadata
+          plugin_followup: yes
+          plugin_followup_archived: yes
+          plugin_followup_sections: repositories
+          plugin_lines: yes
+          plugin_lines_history_limit: 1
+          plugin_lines_repositories_limit: 4
+          plugin_lines_sections: base
+          plugin_repositories: yes
+          plugin_repositories_order: featured, pinned, starred, random
