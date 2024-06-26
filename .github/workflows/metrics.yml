@@ -18,7 +18,6 @@ jobs:
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: xddxdd
-          committer_token: ${{ secrets.METRICS_TOKEN }}
           output_condition: data-changed
           config_octicon: yes
           config_display: columns
