@@ -20,17 +20,19 @@ jobs:
           user: xddxdd
           output_condition: data-changed
           config_octicon: yes
-          config_display: columns
 
           template: classic
           base: header, activity, community, repositories, metadata
+          plugins_errors_fatal: yes
           plugin_followup: yes
-          plugin_followup_indepth: yes
           plugin_followup_archived: yes
-          plugin_followup_sections: repositories, user
+          plugin_followup_sections: user, repositories
           plugin_lines: yes
           plugin_lines_history_limit: 1
           plugin_lines_repositories_limit: 4
           plugin_lines_sections: base
           plugin_repositories: yes
           plugin_repositories_order: featured, pinned, starred, random
+          plugin_rss: yes
+          plugin_rss_source: https://lantian.pub/feed.xml
+          plugin_languages: yes
